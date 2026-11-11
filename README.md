@@ -27,32 +27,31 @@ UBM Pakistan operates two complementary divisions:
 
 ---
 
-## 🚀 How to Publish to GitHub Pages
+## 🚀 Automatic GitHub Pages Deployment
 
-This website is engineered to be 100% static, fast, and free to host on **GitHub Pages**.
+The repository is configured with an automated GitHub Actions deployment workflow (`.github/workflows/deploy.yml`).
 
-### Method 1: Using the Pre-Configured Build Script
+### Repository & Live URL
+- **GitHub Repository:** [usamaiftikhar2580-sketch/ubm-pakistan-website](https://github.com/usamaiftikhar2580-sketch/ubm-pakistan-website)
+- **Live URL:** [https://usamaiftikhar2580-sketch.github.io/ubm-pakistan-website/](https://usamaiftikhar2580-sketch.github.io/ubm-pakistan-website/)
 
-1. **Build the production static files:**
+### How It Works:
+1. **Push to `main` branch:**
    ```bash
-   npm run build
-   ```
-   This generates a minified, standalone static website inside the `dist/` folder.
-
-2. **Deploy the `dist/` directory to GitHub Pages:**
-   ```bash
-   git init
    git add .
-   git commit -m "Initial commit of UBM Pakistan website"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-   git push -u origin main
+   git commit -m "Update website"
+   git push origin main
    ```
+2. **GitHub Actions automatically triggers:**
+   - Installs dependencies (`npm ci`)
+   - Builds production distribution (`npm run build`) with base path `/ubm-pakistan-website/`
+   - Deploys the `dist` folder to GitHub Pages
 
-3. **In your GitHub repository:**
-   - Go to **Settings** > **Pages** (in the left sidebar).
-   - Under **Source**, choose **GitHub Actions** or **Deploy from a branch** (`gh-pages` or `main /dist`).
-   - Your website will immediately be accessible worldwide at `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/`.
+### One-Time Setup in GitHub Repository:
+1. Open [usamaiftikhar2580-sketch/ubm-pakistan-website](https://github.com/usamaiftikhar2580-sketch/ubm-pakistan-website).
+2. Go to **Settings** > **Pages**.
+3. Under **Build and deployment > Source**, select **GitHub Actions**.
+4. Every push to `main` will now automatically build and publish the website!
 
 ---
 

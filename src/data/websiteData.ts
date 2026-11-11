@@ -74,6 +74,10 @@ export interface FAQItem {
   category: string;
 }
 
+const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
 export const BRAND = {
   name: "UBM Pakistan",
   tagline: "Learn & Earn | Build Your Digital Future",
@@ -82,9 +86,9 @@ export const BRAND = {
     title: "Founder & CEO – UBM Pakistan",
     bio: "Usman Iftikhar is the Founder and CEO of UBM Pakistan, focused on ecommerce education, digital skills development, and online business opportunities. Through UBM Pakistan, he aims to empower individuals with practical knowledge and help businesses establish and strengthen their digital presence. His vision is to build a professional platform where learning, innovation, and real-world business opportunities come together.",
     quote: "Our mission is to turn ambitious talent into global digital operators and help businesses across Pakistan build sustainable revenue on world-class marketplaces.",
-    image: "/assets/aistudio/Confident_South_Asian_Man_in_Black_Suit_3fbe291e.png",
+    image: `${baseUrl}assets/aistudio/Confident_South_Asian_Man_in_Black_Suit_3fbe291e.png`,
   },
-  logo: "/assets/aistudio/WhatsApp_Image_2026-09-06_at_11.20.40_PM_c38efa27.jpeg",
+  logo: `${baseUrl}assets/aistudio/WhatsApp_Image_2026-09-06_at_11.20.40_PM_c38efa27.jpeg`,
   contact: {
     phone: "+92 304 0880992",
     whatsappClean: "923040880992",

@@ -17,21 +17,14 @@ export const GitHubPagesModal: React.FC<GitHubPagesModalProps> = ({ isOpen, onCl
     setTimeout(() => setCopiedSection(null), 2500);
   };
 
-  const gitCommands = `# 1. Initialize git repository
-git init
+  const gitCommands = `# 1. Commit changes and push to GitHub
 git add .
-git commit -m "Initial commit of UBM Pakistan website"
+git commit -m "Configure base path and GitHub Actions for GitHub Pages"
+git push origin main
 
-# 2. Add your GitHub repository remote
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/ubm-pakistan.git
-git push -u origin main
-
-# 3. Build & Deploy to GitHub Pages:
-# Run: npm run build
-# Then push the 'dist' folder to the 'gh-pages' branch or use standard GitHub Actions:
-npm run build
-npx gh-pages -d dist`;
+# 2. GitHub Actions will now automatically build and deploy!
+# The website will be live at:
+# https://usamaiftikhar2580-sketch.github.io/ubm-pakistan-website/`;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
@@ -102,14 +95,14 @@ npx gh-pages -d dist`;
           <div className="p-5 rounded-xl bg-[#0B0D0E] border border-white/10 space-y-3">
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
               <span className="w-5 h-5 rounded-full bg-[#19E77A] text-[#0B0D0E] text-xs flex items-center justify-center font-bold">2</span>
-              Activating GitHub Pages in Your Repository
+              One-Time GitHub Pages Setup (GitHub Actions)
             </h3>
             <ol className="list-decimal list-inside space-y-2 leading-relaxed">
-              <li>Open your repository on <strong className="text-white">GitHub.com</strong></li>
+              <li>Open your repository: <a href="https://github.com/usamaiftikhar2580-sketch/ubm-pakistan-website" target="_blank" rel="noopener noreferrer" className="text-[#19E77A] underline">usamaiftikhar2580-sketch/ubm-pakistan-website</a></li>
               <li>Click on <strong className="text-white">Settings</strong> &gt; <strong className="text-white">Pages</strong> (in the left sidebar)</li>
-              <li>Under <strong className="text-white">Source</strong>, select <strong className="text-white">Deploy from a branch</strong></li>
-              <li>Under <strong className="text-white">Branch</strong>, select <strong className="text-white">main</strong> (or <strong className="text-white">gh-pages</strong>) and folder <strong className="text-white">/ (root)</strong></li>
-              <li>Click <strong className="text-white">Save</strong>. Within 60 seconds your site will be live at <code className="text-[#19E77A] bg-white/5 px-1 rounded font-mono">https://YOUR_USERNAME.github.io/ubm-pakistan/</code>!</li>
+              <li>Under <strong className="text-white">Build and deployment &gt; Source</strong>, choose <strong className="text-[#19E77A]">GitHub Actions</strong></li>
+              <li>Push your code to the <code className="text-[#19E77A] font-mono">main</code> branch</li>
+              <li>GitHub Actions workflow (<code className="text-[#19E77A] font-mono">.github/workflows/deploy.yml</code>) will automatically build and publish your site at: <br/><strong className="text-white font-mono text-[11px] bg-black/50 p-1 rounded inline-block mt-1">https://usamaiftikhar2580-sketch.github.io/ubm-pakistan-website/</strong></li>
             </ol>
           </div>
 
